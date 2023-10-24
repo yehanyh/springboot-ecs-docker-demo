@@ -156,16 +156,19 @@ Resources:
         #!/bin/bash
         yum update -y
         yum install docker -y
+        systemctl restart docker
+        yum install jq -y
         
         # dockerjsonConfig解析
         dockerJson='{{ computenest::acr::dockerconfigjson }}'
-        decodeData=$(echo $dockerjson | base64 -d)
-        host=$(echo $decodeData | jq '.auths' | jq keys.[0])
-        username=$(echo $decodeData | jq '.auths.[].username')
-        password=$(echo $decodeData | jq '.auths.[].password')
+        decodeDockerJson=$(echo $dockerJson | base64 -d)
+        host=$(echo $decodeDockerJson | jq '.auths' | jq 'keys' | jq .[0])
+        username=$(echo $decodeDockerJson | jq ".auths.$host.username" | tr -d '"')
+        password=$(echo $decodeDockerJson | jq ".auths.$host.password" | tr -d '"')
+        host=$(echo $host | tr -d '"')
         docker login $host --username=$username --password=$password
         docker pull {{ computenest::acrimage::demo }}
-        docker run -d -p 8080:8080 - {{ computenest::acrimage::demo }}
+        docker run -d -p 8080:8080 {{ computenest::acrimage::demo }}
 Outputs:
   VisitUrl:
     Description:
