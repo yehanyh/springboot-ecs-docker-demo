@@ -11,12 +11,12 @@ RUN yum update -y && \
     yum install -y git && \
     yum clean all && \
     cd /root && \
-    git clone https://github.com/aliyun-computenest/springboot-ecs-image-demo.git && \
+    git clone https://github.com/aliyun-computenest/springboot-ecs-docker-demo.git && \
     mkdir -p /home/admin/application && \
-    cp /root/springboot-ecs-image-demo/artifacts/package.tgz /home/admin/application && \
+    cp /root/springboot-ecs-docker-demo/artifacts/package.tgz /home/admin/application && \
     cd /home/admin/application && \
     tar xvf package.tgz && \
-    rm -rf /root/springboot-ecs-image-demo && \
+    rm -rf /root/springboot-ecs-docker-demo && \
     rm package.tgz
 WORKDIR /home/admin/application/target
 ENV JAVA_HOME /usr/lib/jvm/java-1.8.0-openjdk/
