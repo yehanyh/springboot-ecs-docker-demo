@@ -4,7 +4,8 @@
 
 本文介绍基于docker部署的springboot单机ecs服务快速上手流程，本示例对应的[git地址](https://github.com/aliyun-computenest/springboot-ecs-docker-demo)
 
-本示例会自动的构建计算巢服务，具体的服务构建流程为
+本示例会自动的构建计算巢服务，具体的服务构建流程为:
+
 1. 上传docker镜像并构建计算巢容器镜像部署物
 2. 创建计算巢服务并关联容器镜像部署物
 
