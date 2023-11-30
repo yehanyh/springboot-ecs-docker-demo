@@ -47,10 +47,10 @@
 
 目前提供如下实例：
 
-| 规格族 | vCPU与内存 | 系统盘 | 公网带宽 |
-| --- | --- | --- | --- |
-| ecs.c6.large | 内存型c6，2vCPU 4GiB | ESSD云盘 200GiB PL0 | 固定带宽1Mbps |
-| ecs.c6.2large | 内存型c6，4vCPU 8GiB | ESSD云盘 200GiB PL0 | 固定带宽1Mbps |
+| 规格族           | vCPU与内存 | 系统盘 | 公网带宽 |
+|---------------| --- | --- | --- |
+| ecs.c6.large  | 内存型c6，2vCPU 4GiB | ESSD云盘 200GiB PL0 | 固定带宽1Mbps |
+| ecs.c6.xlarge | 内存型c6，4vCPU 8GiB | ESSD云盘 200GiB PL0 | 固定带宽1Mbps |
 
 预估费用在创建实例时可实时看到。
 
