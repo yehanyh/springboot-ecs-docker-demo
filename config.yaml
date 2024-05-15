@@ -3,7 +3,7 @@ Service:
   DeployType: ros
   DeployMetadata:
     ServiceInstanceNameRule:
-      Prefix: dm
+      Prefix: dm-
     SupplierDeployMetadata:
       AcrImageArtifactRelation:
         '{{ computenest::acrimage::demo }}':
@@ -11,7 +11,7 @@ Service:
           ArtifactVersion: ${Artifact.Artifact_1.ArtifactVersion}
     TemplateConfigs:
       - Name: ECS单机版
-        Url: 'templates/template.yaml'
+        Url: 'ros_templates/template.yaml'
         AllowedRegions:
           - cn-hangzhou
   ServiceType: private
@@ -29,7 +29,7 @@ Service:
   ServiceInfo:
     Locale: zh-CN
     ShortDescription: spring boot demo
-    Image: 'icons/service_logo.png'
+    Image: 'resources/icons/service_logo.png'
     Name: SpringBoot单机版(docker版)
   ShareType: Public
   ApprovalType: Manual
@@ -43,7 +43,7 @@ Artifact:
       Tag: ${AcrImageBuilder.AcrImage_1.Tag}
 AcrImageBuilder:
   AcrImage_1:
-    DockerFilePath: 'docker/Dockerfile'
+    DockerFilePath: 'resources/artifact_resources/acr_image/Dockerfile'
     RepoName: spring-boot-demo
     Tag: v1.0
 
