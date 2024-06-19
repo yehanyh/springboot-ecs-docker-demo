@@ -1,0 +1,49 @@
+Service:
+  RegionId: cn-hangzhou
+  DeployType: ros
+  DeployMetadata:
+    ServiceInstanceNameRule:
+      Prefix: dm-
+    SupplierDeployMetadata:
+      AcrImageArtifactRelation:
+        '{{ computenest::acrimage::demo }}':
+          ArtifactId: ${Artifact.Artifact_1.ArtifactId}
+          ArtifactVersion: ${Artifact.Artifact_1.ArtifactVersion}
+    TemplateConfigs:
+      - Name: ECS单机版
+        Url: 'ros_templates/template.yaml'
+        AllowedRegions:
+          - cn-hangzhou
+  ServiceType: private
+  OperationMetadata:
+    ModifyParametersConfig:
+      - TemplateName: ECS单机版
+        Operation:
+          - Name: 变配ECS实例规格
+            Description: 变配ECS实例规格
+            Type: Custom
+            SupportPredefinedParameters: false
+            EnableLogging: false
+            Parameters:
+              - EcsInstanceType
+  ServiceInfo:
+    Locale: zh-CN
+    ShortDescription: spring boot demo
+    Image: 'resources/icons/service_logo.png'
+    Name: SpringBoot单机版(docker版)
+  ShareType: Public
+  ApprovalType: Manual
+Artifact:
+  Artifact_1:
+    ArtifactType: AcrImage
+    ArtifactName: spring-boot-demo
+    Description: spring-boot-demo
+    ArtifactProperty:
+      RepoName: ${AcrImageBuilder.AcrImage_1.RepoName}
+      Tag: ${AcrImageBuilder.AcrImage_1.Tag}
+AcrImageBuilder:
+  AcrImage_1:
+    DockerFilePath: 'resources/artifact_resources/acr_image/Dockerfile'
+    RepoName: spring-boot-demo
+    Tag: v1.0
+
