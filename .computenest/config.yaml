@@ -25,7 +25,7 @@ Artifact:
   Artifact_1:
     ArtifactType: AcrImage
     # 采用与image_name相同的ArtifactName
-    ArtifactName: LYH-RAIN_springboot-ecs-docker-demo-dockerfile
+    ArtifactName: lyh-rain_springboot-ecs-docker-demo-dockerfile
     ArtifactProperty:
       RepoName: ${AcrImageBuilder.AcrImage_1.RepoName}
       Tag: ${AcrImageBuilder.AcrImage_1.Tag}
@@ -34,6 +34,6 @@ AcrImageBuilder:
     # dockerfile路径
     DockerFilePath: Dockerfile
     # 采用与image_name相同的repoName
-    RepoName: LYH-RAIN_springboot-ecs-docker-demo-dockerfile
+    RepoName: lyh-rain_springboot-ecs-docker-demo-dockerfile
     Tag: 1.0.0
     DockerBuildArgs: {}
