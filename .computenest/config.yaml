@@ -32,7 +32,7 @@ Artifact:
 AcrImageBuilder:
   AcrImage_1:
     # dockerfile路径
-    DockerFilePath: Dockerfile
+    DockerFilePath: ./Dockerfile
     # 采用与image_name相同的repoName
     RepoName: lyh-rain_springboot-ecs-docker-demo-dockerfile
     Tag: 1.0.0
