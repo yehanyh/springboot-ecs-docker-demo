@@ -289,7 +289,7 @@ Resources:
         host=$(echo $host | tr -d '"')
         docker login $host --username=$username --password=$password
         docker pull '{{ computenest::acrimage::LYH-RAIN_springboot-ecs-docker-demo-dockerfile }}'
-        docker run -d -p 8080 -e Password=${Password} '{{ computenest::acrimage::LYH-RAIN_springboot-ecs-docker-demo-dockerfile }}'
+        docker run -d -p 8080:8080 -e Password=${Password} '{{ computenest::acrimage::LYH-RAIN_springboot-ecs-docker-demo-dockerfile }}'
 
 Outputs:
   
