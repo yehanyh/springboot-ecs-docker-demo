@@ -190,11 +190,13 @@ Parameters:
           Fn::Equals:
             - ExistingVPC
             - ${VpcOption}
+
   Password:
     Type: String
     AssociationProperty: ALIYUN::ECS::Instance::Password
     Label: 密码
     NoEcho: True
+
 Resources:
   # 新建vpc
   EcsVpc:
@@ -288,8 +290,8 @@ Resources:
         password=$(echo $decodeDockerJson | jq ".auths.$host.password" | tr -d '"')
         host=$(echo $host | tr -d '"')
         docker login $host --username=$username --password=$password
-        docker pull '{{ computenest::acrimage::LYH-RAIN_springboot-ecs-docker-demo-dockerfile }}'
-        docker run -d -p 8080:8080 -e Password=${Password} '{{ computenest::acrimage::LYH-RAIN_springboot-ecs-docker-demo-dockerfile }}'
+        docker pull '{{ computenest::acrimage::yehanyh_springboot-ecs-docker-demo-dockerfile }}'
+        docker run -d -p 8080:8080 -e Password=${Password} '{{ computenest::acrimage::yehanyh_springboot-ecs-docker-demo-dockerfile }}'
 
 Outputs:
   
